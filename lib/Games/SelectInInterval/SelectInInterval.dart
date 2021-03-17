@@ -9,11 +9,13 @@ class SelectInInterval extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      
       children: [
         DragContainer(),
-        Spacer(),
+     
         DropContainer(),
-      
+     
       ],
     );
   }

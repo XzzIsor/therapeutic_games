@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'NumberBox.dart';
+
 class DragContainer extends StatefulWidget {
   DragContainer({Key key}) : super(key: key);
 
@@ -15,9 +17,40 @@ class _DragContainerState extends State<DragContainer> {
     return Container(
       width: double.infinity,
       height: height,
-      
-      
-      child: Center(child:Text("dasd")),
+      child: Column(
+        
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+        Row(
+          children: [
+            NumberBox(number: 5),
+            NumberBox(number: 6),
+            
+          ],
+        ),
+        Row(
+          children: [
+            NumberBox(number: 5),
+            NumberBox(number: 6),
+            
+          ],
+        ),
+        Row(
+          children: [
+            NumberBox(number: 5),
+            NumberBox(number: 6),
+            
+          ],
+        ),
+        Row(
+          children: [
+            NumberBox(number: 5),
+            NumberBox(number: 6),
+            
+          ],
+        ),
+      ],),
     );
   }
 }

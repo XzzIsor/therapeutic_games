@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+
 class DropContainer extends StatefulWidget {
 
 
@@ -11,10 +12,11 @@ class DropContainer extends StatefulWidget {
 class _DropContainerState extends State<DropContainer> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height *.4;
-    return Container(
+    double height = MediaQuery.of(context).size.height *.3;
+    return Expanded (
+      child: Container(
       width: double.infinity,
-      height: height,
+      height: double.infinity,
       
       decoration: BoxDecoration(
         
@@ -24,7 +26,7 @@ class _DropContainerState extends State<DropContainer> {
             width: 10, 
             color: Color.fromRGBO(114,211,227,1)
       )),
-      child: Center(child:Text("dasd")),
-    );
+      child: Center()
+    ));
   }
 }
