@@ -1,6 +1,5 @@
 # therapeutic_games
-
-A new Flutter project.
+ A number game With therapeutic ends. 
 
 ## Getting Started
 
