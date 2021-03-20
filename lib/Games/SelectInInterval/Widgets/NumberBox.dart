@@ -17,11 +17,9 @@ class NumberBox extends StatelessWidget {
               // Red border with the width is equal to 5
               border: Border.all(
                 width: 2,
-            
               ),
               borderRadius: BorderRadius.all(Radius.circular(10))),
-          
-        ),
+          ),
       feedback: Container(
             height: 40,
             width: width,
