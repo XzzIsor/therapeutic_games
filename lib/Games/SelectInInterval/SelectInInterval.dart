@@ -13,9 +13,7 @@ class SelectInInterval extends StatelessWidget {
       
       children: [
         DragContainer(),
-     
         DropContainer(),
-     
       ],
     );
   }
