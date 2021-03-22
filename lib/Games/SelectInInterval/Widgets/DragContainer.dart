@@ -17,39 +17,28 @@ class _DragContainerState extends State<DragContainer> {
     return Container(
       width: double.infinity,
       height: height,
-      child: Column(
+      child: Row(
         
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-        Row(
+        Column(
           children: [
             NumberBox(number: 5),
             NumberBox(number: 6),
-            
+            NumberBox(number: 5),
+            NumberBox(number: 6),
           ],
         ),
-        Row(
+        Column(
           children: [
             NumberBox(number: 5),
             NumberBox(number: 6),
-            
-          ],
-        ),
-        Row(
-          children: [
             NumberBox(number: 5),
             NumberBox(number: 6),
-            
           ],
         ),
-        Row(
-          children: [
-            NumberBox(number: 5),
-            NumberBox(number: 6),
-            
-          ],
-        ),
+        
       ],),
     );
   }
