@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:therapeutic_games/Games/SelectInInterval/Widgets/NumberContainer.dart';
 
 class NumberBox extends StatefulWidget {
   final int number;
@@ -18,53 +19,24 @@ class _NumberBoxState extends State<NumberBox> {
       _uwu = _boxChild(width);
     }
 
-    return Draggable<Widget>(
+    return Draggable<int>(
       onDragCompleted: () {
         setState(() {
           _uwu = _childWhenD(width);
         });
       },
-      data: _uwu,
+      data: widget.number,
       childWhenDragging: _childWhenD(width),
-      feedback: Container(
-          height: 40,
-          width: width,
-          margin: EdgeInsets.all(5),
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(223, 243, 246, 1),
-              // Red border with the width is equal to 5
-              border: Border.all(
-                width: 2,
-                color: Color.fromRGBO(103, 208, 224, 1),
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: Center(
-              child: Text(
-            "20",
-            style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
-          ))),
+      feedback: NumberContainer(
+        width: width,
+        number: widget.number,
+      ),
       child: _uwu,
     );
   }
 
   Widget _boxChild(double width) {
-    return Container(
-        height: 40,
-        width: width,
-        margin: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-            color: Color.fromRGBO(223, 243, 246, 1),
-            // Red border with the width is equal to 5
-            border: Border.all(
-              width: 2,
-              color: Color.fromRGBO(103, 208, 224, 1),
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        child: Center(
-            child: Text(
-          "20",
-          style: TextStyle(decoration: TextDecoration.none, fontSize: 20),
-        )));
+    return NumberContainer(width: width, number: widget.number);
   }
 
   Widget _childWhenD(double width) {
