@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'NumberBox.dart';
@@ -18,24 +20,23 @@ class _DragContainerState extends State<DragContainer> {
       width: double.infinity,
       height: height,
       child: Row(
-        
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
         Column(
           children: [
-            NumberBox(number: 5),
-            NumberBox(number: 6),
-            NumberBox(number: 5),
-            NumberBox(number: 6),
+            NumberBox(number: Random().nextInt(100)),
+            NumberBox(number: Random().nextInt(100)),
+            NumberBox(number: Random().nextInt(100)),
+            NumberBox(number: Random().nextInt(100)),
           ],
         ),
         Column(
           children: [
-            NumberBox(number: 5),
-            NumberBox(number: 6),
-            NumberBox(number: 5),
-            NumberBox(number: 6),
+            NumberBox(number: Random().nextInt(100)),
+            NumberBox(number: Random().nextInt(100)),
+            NumberBox(number: Random().nextInt(100)),
+            NumberBox(number: Random().nextInt(100)),
           ],
         ),
         

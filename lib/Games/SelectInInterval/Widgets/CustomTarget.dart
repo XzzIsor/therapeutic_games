@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:therapeutic_games/Games/SelectInInterval/Widgets/NumberContainer.dart';
 
 class CustomTarget extends StatefulWidget {
   @override
@@ -10,9 +11,8 @@ class _CustomTargetState extends State<CustomTarget> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width * .45;
-    return DragTarget<Widget>(
-      builder:
-          (context, List<Widget> candidateData, List<dynamic> rejectedData) {
+    return DragTarget<int>(
+      builder: (context, List<int> candidateData, List<dynamic> rejectedData) {
         //print(_widget);
         //print(candidateData);
         return _widget != null
@@ -30,12 +30,15 @@ class _CustomTargetState extends State<CustomTarget> {
                     borderRadius: BorderRadius.all(Radius.circular(10))),
               );
       },
-      onWillAccept: (widget) {
+      onWillAccept: (number) {
+        if (number > 35) {
+          return false; 
+        }
         return true;
       },
-      onAccept: (wid) {
+      onAccept: (number) {
         setState(() {
-          _widget = wid;
+          _widget = NumberContainer(width: width, number: number);
         });
       },
     );
