@@ -33,8 +33,6 @@ class _DropContainerState extends State<DropContainer> {
               children: [
                 Column(
                   children: [
-                  
-                    
                     CustomTarget(),
                     CustomTarget(),
                     CustomTarget(),
@@ -48,8 +46,18 @@ class _DropContainerState extends State<DropContainer> {
                     CustomTarget(),
                     CustomTarget(),
                   ],
-                )
+                ),
+                
               ],),
+              SizedBox(height: 20.0,),
+              Center(
+                  child: IconButton(
+                    color: Color.fromRGBO(114, 211, 227, 1),
+                    iconSize: 35.0,
+                    icon: Icon(Icons.arrow_forward),
+                    onPressed: (){},
+                  ),
+                ),
               ]) 
             
             )
