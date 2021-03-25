@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:therapeutic_games/Games/SelectInInterval/SelectIntervalProvider.dart';
 import 'package:therapeutic_games/Games/SelectInInterval/Widgets/NumberContainer.dart';
 
 class CustomTarget extends StatefulWidget {
@@ -7,6 +8,7 @@ class CustomTarget extends StatefulWidget {
 }
 
 class _CustomTargetState extends State<CustomTarget> {
+  SelecIntervalProvider provider = SelecIntervalProvider.instance;
   Widget _widget;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _CustomTargetState extends State<CustomTarget> {
               );
       },
       onWillAccept: (number) {
-        if (number > 35) {
+        if (number > provider.limits[0]) {
           return false; 
         }
         return true;
