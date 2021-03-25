@@ -23,10 +23,20 @@ class SelecIntervalProvider extends ChangeNotifier {
     }
     for (int i = 0; i < limits.length; i++) {
       if (i == 0) {
-        limits[0] = _random.nextInt(50);
+        limits[0] = 1 + _random.nextInt(49);
       } else {
-        limits[i] = limits[i - 1] + _random.nextInt(100-limits[i - 1]);
+        limits[i] = 1 + limits[i - 1] + _random.nextInt(99 - limits[i - 1]);
       }
     }
+    bool isThereValueLessThanFirstLimit = false;
+    for (int i = 0; i < options.length; i++) {
+      if (options[i] < limits[0]) {
+        isThereValueLessThanFirstLimit = true;
+      }
+    }
+
+    if (!isThereValueLessThanFirstLimit)
+      options[_random.nextInt(options.length)] = _random.nextInt(limits[0] - 1);
+
   }
 }

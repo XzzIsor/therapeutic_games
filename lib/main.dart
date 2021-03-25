@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 /// Flutter code sample for Draggable
 
 // The following example has a [Draggable] widget along with a [DragTarget]
