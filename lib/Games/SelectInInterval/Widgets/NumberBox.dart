@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:therapeutic_games/Games/SelectInInterval/Widgets/NumberContainer.dart';
 
+import '../SelectIntervalProvider.dart';
+
 class NumberBox extends StatefulWidget {
-  final int number;
-  const NumberBox({Key key, @required this.number}) : super(key: key);
+  final int index; 
+  const NumberBox({Key key, @required this.index}) : super(key: key);
 
   @override
   _NumberBoxState createState() => _NumberBoxState();
 }
 
 class _NumberBoxState extends State<NumberBox> {
+
   Widget _uwu;
+  int number = 0; 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width * .45;
-
+      SelecIntervalProvider provider = SelecIntervalProvider.instance;
+      number = provider.options[widget.index]; 
     if (_uwu == null) {
       _uwu = _boxChild(width);
     }
@@ -25,18 +30,18 @@ class _NumberBoxState extends State<NumberBox> {
           _uwu = _childWhenD(width);
         });
       },
-      data: widget.number,
+      data: widget.index,
       childWhenDragging: _childWhenD(width),
       feedback: NumberContainer(
         width: width,
-        number: widget.number,
+        number: number,
       ),
       child: _uwu,
     );
   }
 
   Widget _boxChild(double width) {
-    return NumberContainer(width: width, number: widget.number);
+    return NumberContainer(width: width, number:number);
   }
 
   Widget _childWhenD(double width) {

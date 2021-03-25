@@ -24,18 +24,18 @@ class _DragContainerState extends State<DragContainer> {
         children: [
         Column(
           children: [
-            NumberBox(number: provider.options[0]),
-            NumberBox(number: provider.options[1]),
-            NumberBox(number: provider.options[2]),
-            NumberBox(number: provider.options[3]),
+            NumberBox(index:0),
+            NumberBox(index:1),
+            NumberBox(index:2),
+            NumberBox(index:3),
           ],
         ),
         Column(
           children: [
-            NumberBox(number: provider.options[4]),
-            NumberBox(number: provider.options[5]),
-            NumberBox(number: provider.options[6]),
-            NumberBox(number: provider.options[7]),
+            NumberBox(index:4),
+            NumberBox(index:5),
+            NumberBox(index:6),
+            NumberBox(index:7),
           ],
         ),
         
