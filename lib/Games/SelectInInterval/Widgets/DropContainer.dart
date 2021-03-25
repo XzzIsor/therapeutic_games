@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:therapeutic_games/Games/SelectInInterval/SelectIntervalProvider.dart';
 
 import 'package:therapeutic_games/Games/SelectInInterval/Widgets/CustomTarget.dart';
@@ -11,8 +12,18 @@ class DropContainer extends StatefulWidget {
 class _DropContainerState extends State<DropContainer> {
   @override
   Widget build(BuildContext context) {
-    SelecIntervalProvider provider = SelecIntervalProvider.instance;
-
+    SelecIntervalProvider provider =
+        Provider.of<SelecIntervalProvider>(context, listen: true);
+    provider = SelecIntervalProvider.instance;
+    print("LEVEL " + provider.level.toString());
+    String texto = "";
+    if (provider.finalizate) {
+      texto = "GG EZ PLAY, parecen bots";
+    } else {
+      texto = provider.level == 0
+          ? 'Menores a ${provider.limits[0]}'
+          : 'debe estar entre ${provider.limits[provider.level - 1]} y ${provider.limits[provider.level]}';
+    }
     double height = MediaQuery.of(context).size.height * .3;
     return Expanded(
         child: Container(
@@ -25,7 +36,7 @@ class _DropContainerState extends State<DropContainer> {
                     width: 5, color: Color.fromRGBO(114, 211, 227, 1))),
             child: Column(children: [
               Text(
-                'Menores a ${provider.limits[0]}',
+                texto,
                 style: TextStyle(
                   color: Color.fromRGBO(114, 211, 227, 1),
                   fontSize: 35.0,
@@ -55,14 +66,6 @@ class _DropContainerState extends State<DropContainer> {
               ),
               SizedBox(
                 height: 20.0,
-              ),
-              Center(
-                child: IconButton(
-                  color: Color.fromRGBO(114, 211, 227, 1),
-                  iconSize: 35.0,
-                  icon: Icon(Icons.arrow_forward),
-                  onPressed: () {},
-                ),
               ),
             ])));
   }

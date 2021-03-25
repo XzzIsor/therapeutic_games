@@ -10,6 +10,8 @@ class CustomTarget extends StatefulWidget {
 class _CustomTargetState extends State<CustomTarget> {
   SelecIntervalProvider provider = SelecIntervalProvider.instance;
   Widget _widget;
+  int level = 0;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width * .45;
@@ -32,16 +34,15 @@ class _CustomTargetState extends State<CustomTarget> {
                     borderRadius: BorderRadius.all(Radius.circular(10))),
               );
       },
-      onWillAccept: (number) {
-        if (number > provider.limits[0]) {
-          return false; 
-        }
-        return true;
+      onWillAccept: (index) {
+        return provider.isItCorrect(index); 
       },
-      onAccept: (number) {
-        setState(() {
-          _widget = NumberContainer(width: width, number: number);
-        });
+      onAccept: (index) {
+        _widget =
+            NumberContainer(width: width, number: provider.options[index]);
+        provider.options[index] = -1;
+        provider.nextLevel(level);
+        setState(() {});
       },
     );
   }
